@@ -1,0 +1,24 @@
+.register-box{
+    width: 280px;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.name input, .pswrd input, .desig input{
+    border:none;
+    background: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.desig input{
+    margin-top:20px;
+}
+.pswrd input{
+    margin-top: 20px;
+}
+.button{
+    margin-top:20px;
+}
