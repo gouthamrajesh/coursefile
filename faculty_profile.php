@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="fac_prof.css">
 
 <?php 
     session_start();
@@ -18,7 +19,15 @@
 ?>
 </head>
 <body>
-    Name:<?php echo $current_user; ?>
+    <div class="fac_name">
+    Faculty Name: <?php echo $current_user; ?>
+    </div>
+    
+    <div class="card">
+        <div class="card__content">
+            
+        </div>
+    </div>
     <a href="preference_add.php">Enter preference</a>
     <?php 
     if($designation=="HOD"){
