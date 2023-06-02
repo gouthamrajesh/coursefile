@@ -30,8 +30,8 @@
     
 <div class="container">
     <div class="row justify-content-center">
-    <a href="preference_add.php">
         <div class="col-md-3 col-sm-6">
+            <a href="preference_add.php">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
