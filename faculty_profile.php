@@ -54,16 +54,27 @@
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
+
+        <?php 
+        }
+        if($spcl_desig == "ttcordinat"){
+        ?>
+        <div class="col-md-3 col-sm-6">
+            <a href="time_table.php">
+            <div class="serviceBox" style="margin-top: 50px;">
+                <div class="service-icon">
+                    <span><i class="fa fa-globe"></i></span>
+                </div>
+                <h3 class="title">Time Table Generate</h3></a>
+                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+            </div>
+        </div>
+
+
     </div>
 </div>
 
     
-    
-    <?php 
-    }
-    if($spcl_desig == "ttcordinat"){
-    ?>
-    <a href="time_table.php">Time Table Generate</a>
     <?php 
     }
     ?>
