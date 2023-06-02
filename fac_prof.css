@@ -16,10 +16,98 @@
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
 }
 
-.card__content 
+.card_content 
 {
     background: rgb(5, 6, 45);
     border-radius: 17px;
     width: 100%;
     height: 100%;
+}
+
+
+:root{
+    --color1: #FE6B02; 
+    --color2: #f78f40;
+}
+.serviceBox{
+    padding-top: 30px;
+    color: var(--color1);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 12px 20px 35px;
+    position: relative;
+    z-index: 1;
+}
+.serviceBox:before{
+    content: "";
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5),0 20px 0 var(--color1);
+    position: absolute;
+    left: 0;
+    top: 53px;
+    right: 0;
+    bottom: 20px;
+    z-index: -1;
+}
+.serviceBox .service-icon{
+    background: #fff;
+    font-size: 35px;
+    line-height: 80px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    position: relative;
+}
+.serviceBox .service-icon:before,
+.serviceBox .service-icon:after{
+    content: "";
+    background: linear-gradient(to top,transparent 49%,var(--color1) 50%);
+    border-radius: 50%;
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    bottom: -12px;
+    right: -12px;
+    z-index: -1;
+}
+.serviceBox .service-icon:after{
+    background: var(--color2);
+    height: 12px;
+    width: 150px;
+    border-radius: 0;
+    transform: translateX(-50%);
+    top: 29px;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    z-index: -2;
+}
+.serviceBox .title{
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+.serviceBox .description{
+    color:#666;
+    font-size: 13px;
+    line-height: 23px;
+}
+.serviceBox.blue{
+    --color1: #272171;
+    --color2: #64639F;
+}
+.serviceBox.yellow{
+    --color1: #FFB103;
+    --color2: #F1C149;
+}
+.serviceBox.magenta{
+    --color1: #E51F47;
+    --color2: #DA617A;
+}
+@media only screen and (max-width: 1199px){
+    .serviceBox{ margin: 0 0 30px; }
 }

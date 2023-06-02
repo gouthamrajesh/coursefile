@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="fac_prof.css">
+    <link rel="stylesheet" href="./fac_prof.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 <?php 
     session_start();
@@ -23,12 +28,32 @@
     Faculty Name: <?php echo $current_user; ?>
     </div>
     
-    <div class="card">
-        <div class="card__content">
-            
+<div class="container">
+    <div class="row justify-content-center">
+    <a href="preference_add.php">
+        <div class="col-md-3 col-sm-6">
+            <div class="serviceBox" style="margin-top: 50px;">
+                <div class="service-icon">
+                    <span><i class="fa fa-globe"></i></span>
+                </div>
+                <h3 class="title">Enter preference</h3></a>
+                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+            </div>
+        </div>
+    
+        <div class="col-md-3 col-sm-6">
+            <div class="serviceBox blue">
+                <div class="service-icon">
+                    <span><i class="fa fa-rocket"></i></span>
+                </div>
+                <h3 class="title">Web Development</h3>
+                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+            </div>
         </div>
     </div>
-    <a href="preference_add.php">Enter preference</a>
+</div>
+
+    
     <?php 
     if($designation=="HOD"){
     ?>
@@ -42,4 +67,5 @@
     }
     ?>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </html>
