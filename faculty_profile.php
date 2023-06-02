@@ -40,13 +40,17 @@
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
-    
+
+        <?php 
+        if($designation=="HOD"){
+        ?>
         <div class="col-md-3 col-sm-6">
-            <div class="serviceBox blue">
+        <a href="admin_preference.php">
+            <div class="serviceBox blue" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-rocket"></i></span>
                 </div>
-                <h3 class="title">Web Development</h3>
+                <h3 class="title">Approve Preference</h3></a>
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
@@ -54,10 +58,7 @@
 </div>
 
     
-    <?php 
-    if($designation=="HOD"){
-    ?>
-    <a href="admin_preference.php">Aprove preference</a>
+    
     <?php 
     }
     if($spcl_desig == "ttcordinat"){
