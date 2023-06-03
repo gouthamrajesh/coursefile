@@ -6,7 +6,7 @@
 	transform: translate(-50%, -50%);
 }
 
-.name input, .pswrd input, .desig input{
+.ktu_id input, .name input, .pswrd input, .desig input{
     border:none;
     background: none;
     border-bottom: 1px solid black;

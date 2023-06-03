@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `faculty` (
-  `id` int(11) NOT NULL,
+  `ktu_id` int(11) NOT NULL,
   `name` varchar(10) NOT NULL,
   `designation` varchar(10) NOT NULL,
   `special_designation` varchar(10) NOT NULL
@@ -38,12 +38,12 @@ CREATE TABLE `faculty` (
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`id`, `name`, `designation`, `special_designation`) VALUES
-(1, 'faculty1', 'HOD', ''),
-(2, 'faculty2', 'aprof', ''),
-(3, 'faculty3', 'aprof', ''),
-(4, 'faculty4', 'prof', ''),
-(5, 'faculty5', 'prof', 'ttcordinat');
+INSERT INTO `faculty` (`ktu_id`, `name`, `designation`, `special_designation`) VALUES
+('KTUF11011', 'faculty1', 'HOD', ''),
+('KTUF11021', 'faculty2', 'aprof', ''),
+('KTUF12111', 'faculty3', 'aprof', ''),
+('KTUF12811', 'faculty4', 'prof', ''),
+('KTUF11551', 'faculty5', 'prof', 'ttcordinat');
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ INSERT INTO `faculty` (`id`, `name`, `designation`, `special_designation`) VALUE
 --
 
 CREATE TABLE `faculty_preference` (
-  `id` int(11) NOT NULL,
+  `ktu_id` int(11) NOT NULL,
   `name` varchar(10) NOT NULL,
   `sub1` varchar(10) NOT NULL,
   `s1_app` int(11) NOT NULL DEFAULT 0,
@@ -80,7 +80,7 @@ INSERT INTO `faculty_preference` (`id`, `name`, `sub1`, `s1_app`, `sub2`, `s2_ap
 --
 
 CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
+  `ktu_id` int(11) NOT NULL,
   `username` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   `designation` varchar(10) NOT NULL,
@@ -91,7 +91,7 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `username`, `password`, `designation`, `special_designation`) VALUES
+INSERT INTO `login` (`ktu_id`, `username`, `password`, `designation`, `special_designation`) VALUES
 (1, 'faculty1', '123', 'HOD', NULL),
 (2, 'faculty2', '123', 'aprof', NULL),
 (3, 'faculty3', '123', 'aprof', NULL),
@@ -105,7 +105,7 @@ INSERT INTO `login` (`id`, `username`, `password`, `designation`, `special_desig
 --
 
 CREATE TABLE `preference_final` (
-  `id` int(11) NOT NULL,
+  `ktu_id` int(11) NOT NULL,
   `name` varchar(10) NOT NULL,
   `sub1` varchar(10) NOT NULL,
   `sub2` varchar(10) NOT NULL,
@@ -142,7 +142,7 @@ INSERT INTO `subjects` (`code`, `sub_name`, `LH`, `TH`) VALUES
 --
 
 CREATE TABLE `tt1` (
-  `id` int(11) NOT NULL,
+  `ktu_id` int(11) NOT NULL,
   `day` varchar(10) NOT NULL,
   `hr1` varchar(10) NOT NULL DEFAULT '-',
   `hr2` varchar(10) NOT NULL DEFAULT '-',
@@ -157,11 +157,12 @@ CREATE TABLE `tt1` (
 --
 
 INSERT INTO `tt1` (`id`, `day`, `hr1`, `hr2`, `hr3`, `hr4`, `hr5`, `hr6`) VALUES
-(1, 'monday', 'ITT204', '-', '-', '-', '-', '-'),
-(2, 'tuesday', '-', '-', '-', '-', '-', '-'),
-(3, 'wednesday', '-', '-', 'ITT304', '-', '-', '-'),
-(4, 'thursday', '-', '-', '-', '-', '-', '-'),
-(5, 'friday', '-', '-', '-', '-', '-', 'HUT100');
+('KTUF11011', 'monday', 'ITT204', '-', '-', '-', '-', '-'),
+('KTUF11021', 'tuesday', '-', '-', '-', '-', '-', '-'),
+('KTUF12111', 'wednesday', '-', '-', 'ITT304', '-', '-', '-'),
+('KTUF12811', 'thursday', '-', '-', '-', '-', '-', '-'),
+('KTUF11551', 'friday', '-', '-', '-', '-', '-', 'HUT100');
+
 
 --
 -- Indexes for dumped tables
@@ -171,25 +172,25 @@ INSERT INTO `tt1` (`id`, `day`, `hr1`, `hr2`, `hr3`, `hr4`, `hr5`, `hr6`) VALUES
 -- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ktu_id`);
 
 --
 -- Indexes for table `faculty_preference`
 --
 ALTER TABLE `faculty_preference`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ktu_id`);
 
 --
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ktu_id`);
 
 --
 -- Indexes for table `preference_final`
 --
 ALTER TABLE `preference_final`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ktu_id`);
 
 --
 -- Indexes for table `subjects`
@@ -201,7 +202,7 @@ ALTER TABLE `subjects`
 -- Indexes for table `tt1`
 --
 ALTER TABLE `tt1`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ktu_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables

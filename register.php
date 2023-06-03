@@ -16,6 +16,10 @@
             <input type="text" name="name" id="name" placeholder="Name" required>
         </div>
 
+        <div class="ktu_id" style="margin-top: 20px;">
+            <input type="text" name="ktu_id" id="ktu_id" placeholder="KTU ID" required>
+        </div>
+
         <div class="pswrd">
             <input type="password" name="pswrd" id="pswrd" placeholder="Password" required minlength="1">
 
@@ -25,9 +29,9 @@
             <input type="text" name="desig" id="desig" placeholder="Desgination" required>
 
         </div>
+
         <div class="desig">
             <input type="text" name="spcl_desig" id="spcl_desig" placeholder="Special Desgination" >
-
         </div>
 
         <input type="submit" class="button" value="Add">
