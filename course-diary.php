@@ -25,55 +25,51 @@
 </head>
 <body>
     <div class="fac_name">
+        <h1>Course File</h1>
     Faculty Name: <?php echo $current_user; ?>
     </div>
+
+    <br>
+    <br><br><br>
+    <h3>Course Diary</h3>
     
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-3 col-sm-6">
-            <a href="preference_add.php">
+            <a href="co.php">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
                 </div>
-                <h3 class="title">Enter preference</h3></a>
+                <h3 class="title">Course Outcome</h3></a>
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
 
 
-        <?php 
-        if($designation=="HOD"){
-        ?>
         <div class="col-md-3 col-sm-6">
-        <a href="admin_preference.php">
+        <a href="./po.php">
             <div class="serviceBox blue" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-rocket"></i></span>
                 </div>
-                <h3 class="title">Approve Preference</h3></a>
+                <h3 class="title">Program Outcome</h3></a>
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
 
-        <?php 
-        }
-        if($spcl_desig == "ttcordinat"){
-        ?>
+
         <div class="col-md-3 col-sm-6">
             <a href="time_table.php">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
                 </div>
-                <h3 class="title">Time Table Generate</h3></a>
+                <h3 class="title">CO-PO Mapping</h3></a>
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
 
-        <?php 
-        }
-        ?>
 
         <div class="col-md-3 col-sm-6">
             <a href="./course-diary.php">

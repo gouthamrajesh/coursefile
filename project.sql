@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `faculty` (
-  `ktu_id` int(11) NOT NULL,
+  `ktu_id` varchar(11) NOT NULL PRIMARY KEY,
   `name` varchar(10) NOT NULL,
   `designation` varchar(10) NOT NULL,
   `special_designation` varchar(10) NOT NULL
@@ -38,6 +38,7 @@ CREATE TABLE `faculty` (
 -- Dumping data for table `faculty`
 --
 
+--The following data need not to be added because the data is added in the login table will automatically be added in the faculty table
 INSERT INTO `faculty` (`ktu_id`, `name`, `designation`, `special_designation`) VALUES
 ('KTUF11011', 'faculty1', 'HOD', ''),
 ('KTUF11021', 'faculty2', 'aprof', ''),
@@ -52,7 +53,7 @@ INSERT INTO `faculty` (`ktu_id`, `name`, `designation`, `special_designation`) V
 --
 
 CREATE TABLE `faculty_preference` (
-  `ktu_id` int(11) NOT NULL,
+  `ktu_id` varchar(11) NOT NULL PRIMARY KEY,
   `name` varchar(10) NOT NULL,
   `sub1` varchar(10) NOT NULL,
   `s1_app` int(11) NOT NULL DEFAULT 0,
@@ -80,7 +81,7 @@ INSERT INTO `faculty_preference` (`id`, `name`, `sub1`, `s1_app`, `sub2`, `s2_ap
 --
 
 CREATE TABLE `login` (
-  `ktu_id` int(11) NOT NULL,
+  `ktu_id` varchar(11) NOT NULL PRIMARY KEY,
   `username` varchar(10) NOT NULL,
   `password` varchar(10) NOT NULL,
   `designation` varchar(10) NOT NULL,
@@ -156,7 +157,7 @@ CREATE TABLE `tt1` (
 -- Dumping data for table `tt1`
 --
 
-INSERT INTO `tt1` (`id`, `day`, `hr1`, `hr2`, `hr3`, `hr4`, `hr5`, `hr6`) VALUES
+INSERT INTO `tt1` (`ktu_id`, `day`, `hr1`, `hr2`, `hr3`, `hr4`, `hr5`, `hr6`) VALUES
 ('KTUF11011', 'monday', 'ITT204', '-', '-', '-', '-', '-'),
 ('KTUF11021', 'tuesday', '-', '-', '-', '-', '-', '-'),
 ('KTUF12111', 'wednesday', '-', '-', 'ITT304', '-', '-', '-'),
