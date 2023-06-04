@@ -7,10 +7,21 @@
     /* For example: */
     body {
       font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
     }
     .form-container {
       max-width: 500px;
       margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin-top: 50px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
     }
     .form-group {
       margin-bottom: 20px;
@@ -18,16 +29,30 @@
     .form-group label {
       display: block;
       font-weight: bold;
+      color: #333;
+      margin-bottom: 5px;
     }
     .form-group input {
       width: 100%;
       padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
     .form-submit {
       text-align: center;
     }
     .form-submit button {
       padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .form-submit button:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
