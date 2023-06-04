@@ -61,7 +61,7 @@ $conn->close();
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../css/upload.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/upload.css" type="text/css" />
     <title>File Upload</title>
 </head>
 <body>
