@@ -43,7 +43,7 @@
 
 
         <?php 
-        if($designation=="HOD"){
+        if($designation=="HOD" || $spcl_desig == "admin"){
         ?>
         <div class="col-md-3 col-sm-6">
         <a href="admin_preference.php">
@@ -58,7 +58,7 @@
 
         <?php 
         }
-        if($spcl_desig == "ttcordinat"){
+        if($spcl_desig == "ttcordinat" || $spcl_desig == "admin"){
         ?>
         <div class="col-md-3 col-sm-6">
             <a href="time_table.php">
