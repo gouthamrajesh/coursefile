@@ -76,6 +76,17 @@
         ?>
 
         <div class="col-md-3 col-sm-6">
+            <a href="./view_fac.php">
+            <div class="serviceBox" style="margin-top: 50px;">
+                <div class="service-icon">
+                    <span><i class="fa fa-globe"></i></span>
+                </div>
+                <h3 class="title">Faculty - Subject List</h3></a>
+                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
             <a href="./course-file.php">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
