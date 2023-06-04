@@ -67,7 +67,7 @@ CREATE TABLE `faculty_preference` (
 -- Dumping data for table `faculty_preference`
 --
 
-INSERT INTO `faculty_preference` (`id`, `name`, `sub1`, `s1_app`, `sub2`, `s2_app`, `sub3`, `s3_app`) VALUES
+INSERT INTO `faculty_preference` (`ktu_id`, `name`, `sub1`, `s1_app`, `sub2`, `s2_app`, `sub3`, `s3_app`) VALUES
 (1, 'faculty1', 'PE', 1, 'java', 0, 'c', 1),
 (2, 'faculty2', '', 0, '', 0, '', 0),
 (3, 'faculty3', '', 0, '', 0, '', 0),
