@@ -44,7 +44,6 @@
         <!--
             Here the admin/HoD can only view the following things. Since Mission and Vision, PEO and PSOs are stable content in a
             course file we have decided to give the admin the privilage of updating the stable contents in a course file.
-            **Vision and Mission**
         -->
         <div class="col-xl-3 col-lg-6">
         <a href="./course-file-pages/stable.php" class="card-contents">
@@ -53,7 +52,7 @@
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Vision and Mission, Program Outcome, PEO and PSO</h5>                              
+                            <h5 class="card-title">Vision and Mission, PO, PEO and PSO</h5>                              
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                     </div>
@@ -104,7 +103,7 @@
         <!--*****-->
         <!--Course Outcome Card-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/co.php" class="card-contents">
+        <a href="./course-file-pages/test.php" class="card-contents">
             <div class="card l-bg-cherry">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -119,11 +118,9 @@
             </a>
             </div>
         </div>
-        <!--*****-->
-        <!--Course Outcome Card End-->
         
         <!--*****-->
-        <!--Course Outcome Card-->
+        <!--CO-PO Mapping Page-->
         <div class="col-xl-3 col-lg-6">
         <a href="./course-file-pages/test.php" class="card-contents">
             <div class="card l-bg-blue-dark">
@@ -131,7 +128,7 @@
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Course Outcome - Program Outcome Mapping</h5>                                
+                            <h5 class="card-title">CO - PO Mapping</h5>                                
                         
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
@@ -140,11 +137,28 @@
             </a>
             </div>
         </div>
-        <!--*****-->
-        <!--Course Outcome Card End-->
 
         <!--*****-->
-        <!--Course Outcome Card-->
+        <!--Course Diary-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/course-diary.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Course Diary</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Course Committee Meeting Minutes-->
         <div class="col-xl-3 col-lg-6">
         <a href="./course-file-pages/co.php" class="card-contents">
             <div class="card l-bg-green-dark">
@@ -152,7 +166,7 @@
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Course Outcome</h5>                                
+                            <h5 class="card-title">Course Committee Meeting Minutes</h5>                                
                         
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
@@ -161,11 +175,9 @@
             </a>
             </div>
         </div>
-        <!--*****-->
-        <!--Course Outcome Card End-->
 
         <!--*****-->
-        <!--Course Outcome Card-->
+        <!--Series Test Questions with Answer Key-->
         <div class="col-xl-3 col-lg-6">
         <a href="./course-file-pages/co.php" class="card-contents">
             <div class="card l-bg-orange-dark">
@@ -173,7 +185,25 @@
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Course Outcome</h5>                                
+                            <h5 class="card-title">Series Test Questions with Answer Key</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Series Test Answer Booklets-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/test.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Series Test Answer Booklets</h5>                                
                         
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
@@ -182,12 +212,140 @@
             </a>
             </div>
         </div>
+
         <!--*****-->
-        <!--Course Outcome Card End-->
+        <!--Assignment Questions with Answer Key-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/co.php" class="card-contents">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Assignment Questions with Answer Key</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Sample Assigments-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/co.php" class="card-contents">
+            <div class="card l-bg-orange-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Sample Assignments</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Previous Year Question Paper-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/test.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Prvs Yr. Question Paper</h5>
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Tutorial Log Book-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/co.php" class="card-contents">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Tutorial Log Book</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Result Analysis-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/co.php" class="card-contents">
+            <div class="card l-bg-orange-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Result Analysis</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Attainment Report-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/test.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Attainment Report</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Concluding Report-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/co.php" class="card-contents">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Concluding Report</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
     </div>
 </div>
-
-<h3>Course Diary</h3>
     
     
 </body>
