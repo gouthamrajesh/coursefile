@@ -25,7 +25,7 @@
 </head>
 <body>
     <div class="fac_name">
-        <h1>Vision and Mission</h1>
+        <h1>Permanent Data Drop Point</h1>
     Welcome <?php echo $current_user ; ?> !
     </div>
 

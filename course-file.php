@@ -44,9 +44,10 @@
         <!--
             Here the admin/HoD can only view the following things. Since Mission and Vision, PEO and PSOs are stable content in a
             course file we have decided to give the admin the privilage of updating the stable contents in a course file.
+            **Vision and Mission**
         -->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/vi-mi.php" class="card-contents">
+        <a href="./course-file-pages/stable.php" class="card-contents">
             <div class="card l-bg-cherry">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -61,6 +62,7 @@
             </a>
             </div>
         </div>
+
 
         <?php 
         }
