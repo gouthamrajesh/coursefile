@@ -76,7 +76,7 @@
         ?>
 
         <div class="col-md-3 col-sm-6">
-            <a href="./course-diary.php">
+            <a href="./course-file.php">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
