@@ -33,62 +33,41 @@
 
     <br><br>
 
-<!--   
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-3 col-sm-6">
-            <a href="co.php">
-            <div class="serviceBox" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-globe"></i></span>
+
+        <!--*****-->
+        <!--Admin Only Access-->
+        <?php 
+        if($designation=="HOD" || $spcl_desig == "admin"){
+        ?>
+        <!--
+            Here the admin/HoD can only view the following things. Since Mission and Vision, PEO and PSOs are stable content in a
+            course file we have decided to give the admin the privilage of updating the stable contents in a course file.
+        -->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/vi-mi.php" class="card-contents">
+            <div class="card l-bg-cherry">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Vision and Mission</h5>                              
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
                 </div>
-                <h3 class="title">Course Outcome</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
+            </a>
             </div>
         </div>
 
+        <?php 
+        }
+        ?>
+        <!--*****-->
+        <!--Admin Only Access End-->
 
-        <div class="col-md-3 col-sm-6">
-        <a href="./po.php">
-            <div class="serviceBox blue" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-rocket"></i></span>
-                </div>
-                <h3 class="title">Program Outcome</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
-            </div>
-        </div>
-
-
-        <div class="col-md-3 col-sm-6">
-            <a href="time_table.php">
-            <div class="serviceBox" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-globe"></i></span>
-                </div>
-                <h3 class="title">CO-PO Mapping</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
-            </div>
-        </div>
-
-
-        <div class="col-md-3 col-sm-6">
-            <a href="./course-diary.php">
-            <div class="serviceBox" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-globe"></i></span>
-                </div>
-                <h3 class="title">Course File</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
-            </div>
-        </div>
-
-
-    </div>
-</div> -->
-
-<div class="col-md-10 ">
-    <div class="row ">
         <!--*****-->
         <!--Course Outcome Card-->
         <div class="col-xl-3 col-lg-6">
