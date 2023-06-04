@@ -47,7 +47,7 @@
             **Vision and Mission**
         -->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/stable.php" class="card-contents">
+        <a href="./course-file-pages/new.php" class="card-contents">
             <div class="card l-bg-cherry">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
