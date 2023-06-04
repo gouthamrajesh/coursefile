@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/fac_prof.css">
+    <link rel="stylesheet" href="../css/fac_prof.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,68 +31,24 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-3 col-sm-6">
-            <a href="./course-file-pages/pref-choose.php">
+            <a href="https://docs.google.com/spreadsheets/d/1C7y7W8FwhSZJpU33rGXPb-YOjA0W0gE8uBh9itzQGK0/edit?usp=sharing">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
                 </div>
-                <h3 class="title">Enter preference</h3></a>
+                <h3 class="title">Even Semester</h3></a>
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>
 
 
-        <?php 
-        if($designation=="HOD" || $spcl_desig == "admin"){
-        ?>
         <div class="col-md-3 col-sm-6">
-        <a href="admin_preference.php">
-            <div class="serviceBox blue" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-rocket"></i></span>
-                </div>
-                <h3 class="title">Approve Preference</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
-            </div>
-        </div>
-
-        <?php 
-        }
-        if($spcl_desig == "ttcordinat" || $spcl_desig == "admin"){
-        ?>
-        <div class="col-md-3 col-sm-6">
-            <a href="time_table.php">
+            <a href="https://docs.google.com/spreadsheets/d/1iNvML_67nts8UypLVfuDXxyuytxRKuZQGQA-yl4NbOU/edit?usp=sharing">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
                 </div>
-                <h3 class="title">Time Table Generate</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
-            </div>
-        </div>
-
-        <?php 
-        }
-        ?>
-
-        <div class="col-md-3 col-sm-6">
-            <a href="./view_fac.php">
-            <div class="serviceBox" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-globe"></i></span>
-                </div>
-                <h3 class="title">Faculty - Subject List</h3></a>
-                <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-            <a href="./course-file.php">
-            <div class="serviceBox" style="margin-top: 50px;">
-                <div class="service-icon">
-                    <span><i class="fa fa-globe"></i></span>
-                </div>
-                <h3 class="title">Course File</h3></a>
+                <h3 class="title">Odd Semester</h3></a>
                 <p class="description">Lorem ipsum dolor sit amet conse ctetur adipisicing elit. Qui quaerat fugit quas veniam perferendis repudiandae sequi, dolore quisquam illum.</p>
             </div>
         </div>

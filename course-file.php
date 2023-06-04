@@ -47,13 +47,13 @@
             **Vision and Mission**
         -->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/co.php" class="card-contents">
+        <a href="./course-file-pages/stable.php" class="card-contents">
             <div class="card l-bg-cherry">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Vision and Mission</h5>                              
+                            <h5 class="card-title">Vision and Mission, Program Outcome, PEO and PSO</h5>                              
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                     </div>
@@ -61,7 +61,7 @@
             </a>
             </div>
         </div>
-
+<!--
         <div class="col-xl-3 col-lg-6">
         <a href="./course-file-pages/co.php" class="card-contents">
             <div class="card l-bg-cherry">
@@ -93,7 +93,7 @@
             </a>
             </div>
         </div>
-
+-->
 
         <?php 
         }
@@ -125,13 +125,13 @@
         <!--*****-->
         <!--Course Outcome Card-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/co.php" class="card-contents">
+        <a href="./course-file-pages/test.php" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Course Outcome</h5>                                
+                            <h5 class="card-title">Course Outcome - Program Outcome Mapping</h5>                                
                         
                     </div>
                     <div class="row align-items-center mb-2 d-flex">

@@ -1,214 +1,178 @@
-<?php
-// Replace with your database connection details
-$host = 'localhost:3306';
-$username = 'root';
-$password = 'root';
-$database = 'project';
-
-// Create connection
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Handle form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $category = $_POST['category'];
-
-    // Determine the column name based on the selected category
-    $column = '';
-
-    switch ($category) {
-        case 'viclg':
-            $column = 'viclg';
-            break;
-        case 'miclg':
-            $column = 'miclg';
-            break;
-        case 'vidpt':
-            $column = 'vidpt';
-            break;
-        case 'midpt':
-            $column = 'midpt';
-            break;
-        case 'po':
-            $column = 'po';
-            break;
-        case 'peo':
-            $column = 'peo';
-            break;
-        case 'pso':
-            $column = 'pso';
-            break;
-        default:
-            // Handle invalid category if needed
-            break;
-    }
-
-    // Prepare the SQL statement to insert data into the stable_data table
-    $stmt = $conn->prepare("INSERT INTO stable_data (subject_code, $column) VALUES (?, ?)");
-
-    if (isset($_FILES['fileInput'])) {
-        $files = $_FILES['fileInput'];
-        $count = count($files['name']);
-
-        // Iterate over uploaded files
-        for ($i = 0; $i < $count; $i++) {
-            $tmp_name = $files['tmp_name'][$i];
-            $file_name = $files['name'][$i];
-
-            // Move uploaded file to desired location
-            $upload_dir = 'uploads/';
-            $file_path = $upload_dir . $file_name;
-            move_uploaded_file($tmp_name, $file_path);
-
-            // Get the subject code from the file name
-            $subject_code = substr($file_name, 0, strpos($file_name, '.'));
-
-            // Bind parameters and execute the SQL statement
-            $stmt->bind_param("ss", $subject_code, $file_path);
-            $stmt->execute();
-        }
-
-        echo "<h2>Files uploaded successfully!</h2>";
-    } else {
-        echo "<h2>Error!</h2>";
-        echo "<div class='error-message'>Error uploading files.</div>";
-    }
-
-    // Close the prepared statement
-    $stmt->close();
-}
-
-// Close the database connection
-$conn->close();
-?>
-
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>File Upload</title>
-  <style>
-    /* Add your CSS styles here */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f1f1f1;
-    }
-    .container {
-      max-width: 80%;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-    .file-upload {
-      border: 2px dashed #ccc;
-      padding: 20px;
-      text-align: center;
-      color: #777;
-    }
-    .file-upload:hover {
-      background-color: #f9f9f9;
-    }
-    .file-upload input {
-      display: none;
-    }
-    .file-upload-label {
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .file-upload-drag {
-      font-size: 14px;
-      color: #999;
-      margin-top: 10px;
-    }
-    .category-select {
-      margin-top: 20px;
-      text-align: center;
-    }
-    .category-select label {
-      display: inline-block;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    .form-submit {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .form-submit button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-    .form-submit button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course File</title>
+    <link rel="stylesheet" href="../css/course-file.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<?php 
+    session_start();
+    $current_user = $_SESSION['$current_user'];
+    $conn = mysqli_connect("localhost:3306","root","root","project");
+    $sql1 = " SELECT * FROM faculty_preference";
+    $sql2 = "SELECT * FROM subjects";
+    $faculty= mysqli_query($conn,$sql1);
+    $designation = $_SESSION['$designation'];
+    $spcl_desig = $_SESSION['$spcl_desig'];
+?>
 </head>
 <body>
-  <div class="container">
-    <h2>File Upload</h2>
-    <form method="POST" enctype="multipart/form-data">
-      <div class="file-upload">
-        <label class="file-upload-label" for="fileInput">Drag and drop files here or click to upload</label>
-        <input type="file" name="fileInput[]" id="fileInput">
-        <div class="file-upload-drag">(Maximum file size: 10MB)</div>
-      </div>
+    <div class="fac_name">
+        <h1>Course File</h1>
+    Faculty Name: <?php echo $current_user; ?>
+    </div>
 
-      <div class="category-select">
-        <label for="category">Category:</label>
-        <select name="category" id="category">
-          <option value="viclg">Vision of the college</option>
-          <option value="miclg">Mission of the college</option>
-          <option value="vidpt">Vision of the department</option>
-          <option value="midpt">Mission of the department</option>
-          <option value="po">Program Outcome</option>
-          <option value="peo">PEO</option>
-          <option value="pso">PSO</option>
-        </select>
-      </div>
+    <br><br>
 
-      <div class="form-submit">
-        <button type="submit">Upload</button>
-      </div>
-    </form>
-  </div>
+<div class="container">
+    <div class="row justify-content-center">
 
-  <script>
-    // Drag and drop file functionality
-    var fileInput = document.getElementById('fileInput');
-    var fileUpload = document.querySelector('.file-upload');
 
-    fileUpload.addEventListener('dragover', function(e) {
-      e.preventDefault();
-      fileUpload.classList.add('file-upload-dragover');
-    });
+        <!--*****-->
+        <!--Vision of the College-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/viclg.php" class="card-contents">
+            <div class="card l-bg-cherry">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Vision of the College</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+        
+        <!--*****-->
+        <!--Mission of the College-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/miclg.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Mission of the College</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
 
-    fileUpload.addEventListener('dragleave', function(e) {
-      e.preventDefault();
-      fileUpload.classList.remove('file-upload-dragover');
-    });
+        <!--*****-->
+        <!--Vision of the Department-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/vidpt.php" class="card-contents">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Vision of the Department</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
 
-    fileUpload.addEventListener('drop', function(e) {
-      e.preventDefault();
-      fileUpload.classList.remove('file-upload-dragover');
-      fileInput.files = e.dataTransfer.files;
-    });
-  </script>
+        <!--*****-->
+        <!--Mission of the Department-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/miclg.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Mission of the Department</h5>                                
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Program Outcome-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/po.php" class="card-contents">
+            <div class="card l-bg-green-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">Program Outcome</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--PEO-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/peo.php" class="card-contents">
+            <div class="card l-bg-blue-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">PEO</h5>
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+        <!--*****-->
+        <!--Mission of the Department-->
+        <div class="col-xl-3 col-lg-6">
+        <a href="./course-file-pages/stable-files/pso.php" class="card-contents">
+            <div class="card l-bg-orange-dark">
+                <div class="card-statistic-3 p-4">
+                    <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div class="mb-4">
+                            <h5 class="card-title">PSO</h5>
+                        
+                    </div>
+                    <div class="row align-items-center mb-2 d-flex">
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+    
+    
 </body>
 </html>
