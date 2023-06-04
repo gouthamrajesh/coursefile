@@ -243,3 +243,24 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+/* Goutham's SQL Queries*/
+
+CREATE TABLE subjects (
+  subject_code VARCHAR(255) PRIMARY KEY,
+  faculty_name VARCHAR(255),
+  semester_number INT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+--OR
+
+CREATE TABLE subjectss (
+  faculty VARCHAR(100),
+  subject_code VARCHAR(50) PRIMARY KEY,
+  semester INT,
+  teaching_hours INT,
+  subject_credit INT
+);
+
