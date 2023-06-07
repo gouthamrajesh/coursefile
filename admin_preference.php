@@ -63,7 +63,7 @@
       <div class="form-group">
         <label for="faculty">Faculty Name:</label>
         <select name="faculty" id="faculty">
-          <!-- Fetch and populate the faculty names dynamically from the database here -->
+          <!-- Fetch and populate the faculty names and ktu_ids dynamically from the database here -->
           <?php
           // Replace with your database connection code
           $host = 'localhost:3306';
@@ -72,15 +72,15 @@
           $database = 'project';
 
           // Create connection
-          $conn = new mysqli($servername, $username, $password, $database);
+          $conn = new mysqli($host, $username, $password, $database);
 
           // Check connection
           if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           }
 
-          // Fetch faculty names from the database
-          $sql = "SELECT name FROM faculty";
+          // Fetch faculty names and ktu_ids from the database
+          $sql = "SELECT name, ktu_id FROM faculty";
           $result = $conn->query($sql);
 
           // Populate the select options

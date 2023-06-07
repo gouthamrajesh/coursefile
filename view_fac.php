@@ -14,6 +14,7 @@
         <th>Teaching Hours</th>
         <th>Semester Number</th>
         <th>Subject Credit</th>
+        <th>KTU ID</th>
       </tr>
       <?php
       // Replace with your database connection code
@@ -41,6 +42,7 @@
           $teaching_hours = $row['teaching_hours'];
           $semester = $row['semester'];
           $subject_credit = $row['subject_credit'];
+          $ktu_id = $row['ktu_id'];
 
           echo "<tr>";
           echo "<td class='faculty'>$faculty</td>";
@@ -48,10 +50,11 @@
           echo "<td class='teaching-hours'>$teaching_hours</td>";
           echo "<td class='semester-number'>$semester</td>";
           echo "<td class='subject-credit'>$subject_credit</td>";
+          echo "<td class='ktu-id'>$ktu_id</td>";
           echo "</tr>";
         }
       } else {
-        echo "<tr><td colspan='5'>No faculty details found.</td></tr>";
+        echo "<tr><td colspan='6'>No faculty details found.</td></tr>";
       }
 
       // Close the database connection

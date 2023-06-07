@@ -38,44 +38,53 @@
 </head>
 <body>
   <div class="container">
-    <?php
-    // Replace with your database connection code
-    $host = 'localhost:3306';
-    $username = 'root';
-    $password = 'root';
-    $database = 'project';
+  <?php
+  // Replace with your database connection code
+  $host = 'localhost:3306';
+  $username = 'root';
+  $password = 'root';
+  $database = 'project';
 
-    // Create connection
-    $conn = new mysqli($host, $username, $password, $database);
+  // Create connection
+  $conn = new mysqli($host, $username, $password, $database);
 
-    // Check connection
-    if ($conn->connect_error) {
+  // Check connection
+  if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
-    }
+  }
 
-    // Retrieve form data
-    $faculty = $_POST['faculty'];
-    $subject_code = $_POST['subject_code'];
-    $semester = $_POST['semester'];
-    $teaching_hours = $_POST['teaching_hours'];
-    $subject_credit = $_POST['subject_credit'];
+  // Retrieve form data
+  $faculty_name = $_POST['faculty'];
+  $subject_code = $_POST['subject_code'];
+  $semester = $_POST['semester'];
+  $teaching_hours = $_POST['teaching_hours'];
+  $subject_credit = $_POST['subject_credit'];
 
-    // Prepare the SQL statement to insert data into the subjects table
-    $stmt = $conn->prepare("INSERT INTO subjects (faculty, subject_code, semester, teaching_hours, subject_credit) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssiii", $faculty, $subject_code, $semester, $teaching_hours, $subject_credit);
+  // Retrieve ktu_id based on the selected faculty
+  $stmt = $conn->prepare("SELECT ktu_id FROM faculty WHERE name = ?");
+  $stmt->bind_param("s", $faculty_name);
+  $stmt->execute();
+  $stmt->bind_result($ktu_id);
+  $stmt->fetch();
+  $stmt->close();
 
-    if ($stmt->execute()) {
+  // Prepare and execute the query to insert data into the subjects table
+  $stmt = $conn->prepare("INSERT INTO subjects (faculty, subject_code, semester, teaching_hours, subject_credit, ktu_id) VALUES (?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssiis", $faculty_name, $subject_code, $semester, $teaching_hours, $subject_credit, $ktu_id);
+  $stmt->execute();
+
+  if ($stmt->affected_rows > 0) {
       echo "<h2>Subject added successfully!</h2>";
       echo "<div class='success-message'>Subject has been registered successfully.</div>";
-    } else {
+  } else {
       echo "<h2>Error!</h2>";
       echo "<div class='error-message'>Error: " . $stmt->error . "</div>";
-    }
+  }
 
-    // Close the prepared statement and the database connection
-    $stmt->close();
-    $conn->close();
-    ?>
+  // Close the prepared statement and the database connection
+  $stmt->close();
+  $conn->close();
+  ?>
   </div>
 </body>
 </html>
