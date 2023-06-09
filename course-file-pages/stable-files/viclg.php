@@ -1,23 +1,19 @@
 <?php
-      $host = 'localhost:3306';
-      $username = 'root';
-      $password = 'root';
-      $database = 'project';
+// Establish database connection
+$servername = "localhost:3306";
+$username = "root";
+$password = "root";
+$database = "project";
 
-// Create a connection to the database
-$conn = new mysqli($host, $username, $password, $database);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($servername, $username, $password, $database);
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $subjectCode = $_POST["subject_code"];
-    $targetDirectory = ".../uploads/";
+    $targetDirectory = "../uploads/";
     $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
-    $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
     // Check if file already exists
     if (file_exists($targetFile)) {
@@ -37,13 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
     } else {
         // Move the uploaded file to the desired directory
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
-            $fileName = $_FILES["file"]["name"];
-            $filePath = $targetFile;
-
             // Insert file details into the database
-            $sql = "INSERT INTO subjects_files (subject_code, file_name, file_path) VALUES ('$subjectCode', '$fileName', '$filePath')";
+            $filename = $_FILES["file"]["name"];
+            $fileSize = $_FILES["file"]["size"];
+            $uploadTime = date("Y-m-d H:i:s");
 
-            if ($conn->query($sql) === TRUE) {
+            $sql = "INSERT INTO subject_files (filename, filepath, filesize, upload_time) VALUES ('$filename', '$targetFile', '$fileSize', '$uploadTime')";
+            if (mysqli_query($conn, $sql)) {
                 echo '<div class="message success">The file ' . basename($_FILES["file"]["name"]) . ' has been uploaded and details saved to the database.</div>';
             } else {
                 echo '<div class="message error">Sorry, there was an error uploading your file and saving details to the database.</div>';
@@ -55,8 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
 }
 
 // Close the database connection
-$conn->close();
+mysqli_close($conn);
 ?>
+
 
 <!DOCTYPE html>
 <html>
