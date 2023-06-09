@@ -15,7 +15,7 @@
   <form action="validate.php" method="post">
 	<div class="login-wrapper">
 		<div class="login-box">
-		<h1>Login</h1>
+		<h1>Faculty Login</h1>
 
 		<div class="textbox">
 			<i class="fa fa-user" aria-hidden="true"></i>
