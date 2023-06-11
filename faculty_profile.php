@@ -88,7 +88,7 @@
         </div>
 
         <div class="col-md-3 col-sm-6">
-            <a href="./course-file.php">
+            <a href="./cf-entry.php">
             <div class="serviceBox" style="margin-top: 50px;">
                 <div class="service-icon">
                     <span><i class="fa fa-globe"></i></span>
