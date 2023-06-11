@@ -24,7 +24,6 @@
 ?>
 </head>
 <body>
-<div class="login-wrapper">
 <div class="fac_name">
     <br>
     Faculty Name: <?php echo $current_user; ?>
@@ -101,7 +100,6 @@
 
 
     </div>
-</div>
 </div>
     
     

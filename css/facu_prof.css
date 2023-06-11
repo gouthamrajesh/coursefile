@@ -110,12 +110,3 @@
 @media only screen and (max-width: 1199px){
     .serviceBox{ margin: 0 0 30px; }
 }
-
-.login-wrapper {
-    background-image: linear-gradient(45deg,rgba(226, 86, 205, 0.507),rgba(33, 73, 142, 0.75)),url('../img/gecbh.png');
-    background-size: cover;
-    background-position: center;
-    justify-content: center;
-    align-items: center;
-    }
-
