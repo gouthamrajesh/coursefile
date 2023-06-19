@@ -17,6 +17,14 @@
 <?php 
     session_start();
     $current_user = $_SESSION['$current_user'];
+
+    // Retrieve the subject code from the URL parameter
+    if (isset($_GET['subject'])) {
+        $subject_code = $_GET['subject'];
+    } else {
+        $subject_code = 'No Subject Code Available';
+    }
+
     $conn = mysqli_connect("localhost:3306","root","root","project");
     $sql1 = " SELECT * FROM faculty_preference";
     $sql2 = "SELECT * FROM subjects";
@@ -29,6 +37,8 @@
     <div class="fac_name">
         <h1>Course File</h1>
     Faculty Name: <?php echo $current_user; ?>
+    <br>
+    Subject Code: <?php echo $subject_code; ?>
     </div>
 
     <br><br>

@@ -100,8 +100,6 @@ $result = mysqli_query($conn, $sql);
                 <select name="subject" id="subject">
                     <?php
                     // Populate the select options with subjects assigned to the current faculty
-                    $_SESSION['$current_subcode'] = $subject_code;
-
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
                             echo "<option value='" . $row["subject_code"] . "'>" . $row["subject_code"] . "</option>";
