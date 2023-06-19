@@ -18,10 +18,13 @@
     session_start();
     $current_user = $_SESSION['$current_user'];
 
-    // Retrieve the subject code from the URL parameter
-    if (isset($_GET['subject'])) {
+    // Retrieving the subject code from the URL parameter
+    if (isset($_GET['subject'])) 
+    {
         $subject_code = $_GET['subject'];
-    } else {
+    } 
+    else 
+    {
         $subject_code = 'No Subject Code Available';
     }
 
