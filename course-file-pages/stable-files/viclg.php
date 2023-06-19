@@ -11,7 +11,7 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $targetDirectory = "../uploads/";
+    $targetDirectory = "../../uploads/";
     $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
 
@@ -38,7 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
             $fileSize = $_FILES["file"]["size"];
             $uploadTime = date("Y-m-d H:i:s");
 
-            $sql = "INSERT INTO subject_files (filename, filepath, filesize, upload_time) VALUES ('$filename', '$targetFile', '$fileSize', '$uploadTime')";
+            $filepath = "uploads/" . $filename; // Relative path of the uploaded file
+
+            $sql = "INSERT INTO subjects_files (subject_code, file_name, file_path, uploaded_at) 
+                    VALUES ('".$_POST['subject_code']."', '$filename', '$filepath', '$uploadTime')";
+
             if (mysqli_query($conn, $sql)) {
                 echo '<div class="message success">The file ' . basename($_FILES["file"]["name"]) . ' has been uploaded and details saved to the database.</div>';
             } else {
@@ -53,7 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
 // Close the database connection
 mysqli_close($conn);
 ?>
-
 
 <!DOCTYPE html>
 <html>
