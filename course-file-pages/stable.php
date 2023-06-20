@@ -40,7 +40,7 @@
         <!--*****-->
         <!--Vision of the College-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/viclg.php" class="card-contents">
+        <a href="./stable-files/viclg.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-cherry">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -59,7 +59,7 @@
         <!--*****-->
         <!--Mission of the College-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/miclg.php" class="card-contents">
+        <a href="./stable-files/miclg.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -78,7 +78,7 @@
         <!--*****-->
         <!--Vision of the Department-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/vidpt.php" class="card-contents">
+        <a href="./stable-files/vidpt.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-green-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -97,7 +97,7 @@
         <!--*****-->
         <!--Mission of the Department-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/miclg.php" class="card-contents">
+        <a href="./stable-files/miclg.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -116,7 +116,7 @@
         <!--*****-->
         <!--Program Outcome-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/po.php" class="card-contents">
+        <a href="./stable-files/po.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-green-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -134,7 +134,7 @@
         <!--*****-->
         <!--PEO-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/peo.php" class="card-contents">
+        <a href="./stable-files/peo.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -152,7 +152,7 @@
         <!--*****-->
         <!--Mission of the Department-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/pso.php" class="card-contents">
+        <a href="./stable-files/pso.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-orange-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
