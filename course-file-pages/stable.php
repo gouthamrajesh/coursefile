@@ -23,6 +23,17 @@
     $faculty= mysqli_query($conn,$sql1);
     $designation = $_SESSION['$designation'];
     $spcl_desig = $_SESSION['$spcl_desig'];
+
+    // Retrieving the subject code from the URL parameter
+    if (isset($_GET['subject'])) {
+        $subjectCode = $_GET['subject'];
+    } else {
+        $subjectCode = 'No Subject Code Available';
+    }
+
+    $current_user = $_SESSION['$current_user'];
+    $_SESSION['subjectCode'] = $subjectCode;
+
 ?>
 </head>
 <body>

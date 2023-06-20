@@ -97,6 +97,8 @@ mysqli_close($conn);
         Faculty Name: <?php echo $current_user; ?>
         <br>
         Subject Code: <?php echo $subjectCode; ?>
+        <br>
+        <h4>Vision of the College</h4>
     </div>
 
     <div class="upload-form">
