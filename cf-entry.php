@@ -94,14 +94,12 @@ $result = mysqli_query($conn, $sql);
 
     <div class="form-container">
         <h2>Subject Filtration</h2>
-        <form action="course-file.php" method="GET">
+        <form action="./course-file.php" method="GET">
             <div class="form-group">
                 <label for="subject">Choose Subject:</label>
                 <select name="subject" id="subject">
                     <?php
 
-                    //Subject Code logging to session variable
-                    
                     // Populate the select options with subjects assigned to the current faculty
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {

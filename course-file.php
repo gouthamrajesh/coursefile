@@ -29,13 +29,6 @@
     session_start();
     $current_user = $_SESSION['$current_user'];
     $_SESSION['subjectCode'] = $subjectCode;
-
-    
-    if (!isset($_SESSION['subject_code'])) {
-        // Redirect to the page where the faculty chooses the subject code
-        header("Location: cf-entry.php");
-        exit();
-    }
     
 
     $conn = mysqli_connect("localhost:3306","root","root","project");
