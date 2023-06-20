@@ -15,18 +15,28 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 <?php 
-    session_start();
-    $current_user = $_SESSION['$current_user'];
 
     // Retrieving the subject code from the URL parameter
     if (isset($_GET['subject'])) 
     {
-        $subject_code = $_GET['subject'];
+        $subjectCode = $_GET['subject'];
     } 
     else 
     {
-        $subject_code = 'No Subject Code Available';
+        $subjectCode = 'No Subject Code Available';
     }
+
+    session_start();
+    $current_user = $_SESSION['$current_user'];
+    $_SESSION['subjectCode'] = $subjectCode;
+
+    
+    if (!isset($_SESSION['subject_code'])) {
+        // Redirect to the page where the faculty chooses the subject code
+        header("Location: cf-entry.php");
+        exit();
+    }
+    
 
     $conn = mysqli_connect("localhost:3306","root","root","project");
     $sql1 = " SELECT * FROM faculty_preference";
@@ -41,7 +51,7 @@
         <h1>Course File</h1>
     Faculty Name: <?php echo $current_user; ?>
     <br>
-    Subject Code: <?php echo $subject_code; ?>
+    Subject Code: <?php echo $subjectCode; ?>
     </div>
 
     <br><br>
@@ -59,7 +69,7 @@
             course file we have decided to give the admin the privilage of updating the stable contents in a course file.
         -->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/stable.php" class="card-contents">
+        <a href="./course-file-pages/stable-files/viclg.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-cherry">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>

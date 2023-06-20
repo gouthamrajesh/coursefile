@@ -99,6 +99,9 @@ $result = mysqli_query($conn, $sql);
                 <label for="subject">Choose Subject:</label>
                 <select name="subject" id="subject">
                     <?php
+
+                    //Subject Code logging to session variable
+                    
                     // Populate the select options with subjects assigned to the current faculty
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
