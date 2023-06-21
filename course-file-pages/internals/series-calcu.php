@@ -98,6 +98,7 @@
     $current_user = $_SESSION['$current_user'];
     $_SESSION['subjectCode'] = $subjectCode;
 
+
     $conn = mysqli_connect("localhost:3306","root","root","project");
     $sql1 = " SELECT * FROM faculty_preference";
     $sql2 = "SELECT * FROM subjects";
@@ -131,6 +132,19 @@
 
             // Add the values to the array
             $values[] = "($rollNo, '$name', $series1Score, $series2Score, $avgSeriesScore)";
+
+            // Prepare the SQL statement to insert into the cumu_calcu table
+            $sqlInsertCumu = "INSERT INTO cumu_calcu (roll_no, name, avg_series) VALUES ";
+            $valuesCumu = array();
+
+            // Add the values to the array
+            $valuesCumu[] = "($rollNo, '$name', $avgSeriesScore)";
+
+            // Concatenate the values and complete the SQL statement
+            $sqlInsertCumu .= implode(", ", $valuesCumu);
+
+            // Insert the data into the cumu_calcu table
+            mysqli_query($conn, $sqlInsertCumu);
         }
 
         // Concatenate the values and complete the SQL statement
@@ -156,10 +170,6 @@
     </div>
 
     <br><br>
-
-    <?php if (isset($message) && !empty($message)) { ?>
-        <p class="<?php echo $messageClass; ?>"><?php echo $message; ?></p>
-    <?php } ?>
 
     <form method="POST">
         <table>
@@ -188,5 +198,8 @@
         <button type="submit">Submit</button>
     </form>
 
+    <?php if (isset($message)) { ?>
+        <p class="<?php echo $messageClass; ?>"><?php echo $message; ?></p>
+    <?php } ?>
 </body>
 </html>
