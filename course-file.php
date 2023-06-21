@@ -176,7 +176,7 @@
         <!--*****-->
         <!--Course Committee Meeting Minutes-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/co.php" class="card-contents">
+        <a href="./course-file-pages/meeting-minutes.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-green-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
