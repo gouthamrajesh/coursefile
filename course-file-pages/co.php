@@ -112,7 +112,7 @@ mysqli_close($conn);
             margin-top: 10px;
         }
     </style>
-    <title>Course Committee Meeting Minutes</title>
+    <title>Course Outcome</title>
 </head>
 <body>
     <div class="container">
