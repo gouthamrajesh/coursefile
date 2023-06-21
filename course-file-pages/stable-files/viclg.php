@@ -22,7 +22,7 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $targetDirectory = "../../uploads/";
+    $targetDirectory = "../../uploads/viclg/";
     $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
 
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
             $fileSize = $_FILES["file"]["size"];
             $uploadTime = date("Y-m-d H:i:s");
 
-            $filepath = "uploads/" . $filename; // Relative path of the uploaded file
+            $filepath = "uploads/viclg/" . $filename; // Relative path of the uploaded file
 
             // Prepare the SQL statement
             $sql = "INSERT INTO subjects_files (subject_code, file_name, file_path, uploaded_at) 
@@ -88,7 +88,7 @@ mysqli_close($conn);
 <head>
     <link rel="stylesheet" href="../../css/upload.css" type="text/css" />
     <link rel="stylesheet" href="../../css/facu_prof.css" type="text/css">
-    <title>File Upload</title>
+    <title>Vision of the College</title>
 </head>
 <body>
 

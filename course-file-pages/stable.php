@@ -39,7 +39,9 @@
 <body>
     <div class="fac_name">
         <h1>Course File</h1>
-    Faculty Name: <?php echo $current_user; ?>
+        Faculty Name: <?php echo $current_user; ?>
+        <br>
+        Subject Code: <?php echo $subjectCode; ?>
     </div>
 
     <br><br>
@@ -108,7 +110,7 @@
         <!--*****-->
         <!--Mission of the Department-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./stable-files/miclg.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
+        <a href="./stable-files/midpt.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
