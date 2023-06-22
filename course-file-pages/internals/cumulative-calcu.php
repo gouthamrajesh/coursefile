@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course File</title>
-    <link rel="stylesheet" href="../../css/course-file.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-<?php 
-
+<?php
 // Retrieving the subject code from the URL parameter
-if (isset($_GET['subject'])) 
-{
+if (isset($_GET['subject'])) {
     $subjectCode = $_GET['subject'];
-} 
-else 
-{
+} else {
     $subjectCode = 'No Subject Code Available';
 }
 
@@ -30,27 +10,95 @@ session_start();
 $current_user = $_SESSION['$current_user'];
 $_SESSION['subjectCode'] = $subjectCode;
 
+$conn = mysqli_connect("localhost:3306", "root", "root", "project");
+$sqlStudents = "SELECT roll_no, name FROM students";
+$resultStudents = mysqli_query($conn, $sqlStudents);
+$students = mysqli_fetch_all($resultStudents, MYSQLI_ASSOC);
 
-$conn = mysqli_connect("localhost:3306","root","root","project");
-$sql1 = " SELECT * FROM faculty_preference";
-$sql2 = "SELECT * FROM subjects";
-$faculty= mysqli_query($conn,$sql1);
-$designation = $_SESSION['$designation'];
-$spcl_desig = $_SESSION['$spcl_desig'];
+// Calculate and update the total column
+$sqlUpdate = "UPDATE cumu_calcu
+              SET total = COALESCE(avg_series, 0) + COALESCE(avg_assignment, 0) + COALESCE(avg_attendance, 0)";
+mysqli_query($conn, $sqlUpdate);
+
+// Fetch data from cumu_calcu table
+$sqlSelect = "SELECT * FROM cumu_calcu";
+$result = mysqli_query($conn, $sqlSelect);
+$records = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumulative Internal Scores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        .fac_name {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
     <div class="fac_name">
-        <h1>Course Diary</h1>
-    Faculty Name: <?php echo $current_user; ?>
-    <br>
-    Subject Code: <?php echo $subjectCode; ?>
-    <br>
-    <h4>Cumulative Calculator</h4>
+        <h1>Cumulative Internal Scores</h1>
+        Faculty Name: <?php echo $current_user; ?><br>
+        Subject Code: <?php echo $subjectCode; ?><br>
+        <h4>Cumulative Scores</h4>
     </div>
 
-    <br><br>
-    
-    
+    <table>
+        <tr>
+            <th>Roll Number</th>
+            <th>Name</th>
+            <th>Average Series</th>
+            <th>Average Assignment</th>
+            <th>Average Attendance</th>
+            <th>Total</th>
+        </tr>
+        <?php foreach ($records as $record) { ?>
+            <tr>
+                <td><?php echo $record['roll_no']; ?></td>
+                <td><?php echo $record['name']; ?></td>
+                <td><?php echo $record['avg_series']; ?></td>
+                <td><?php echo $record['avg_assignment']; ?></td>
+                <td><?php echo $record['avg_attendance']; ?></td>
+                <td><?php echo $record['total']; ?></td>
+            </tr>
+        <?php } ?>
+    </table>
 </body>
 </html>
