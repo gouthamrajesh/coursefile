@@ -33,7 +33,7 @@
         /* New styles */
         .present {
             background-color: paleturquoise;
-            color: white;
+            color: black;
         }
         .absent {
             background-color: grey;
