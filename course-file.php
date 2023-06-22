@@ -213,7 +213,7 @@
         <!--*****-->
         <!--Series Test Answer Booklets-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/test.php" class="card-contents">
+        <a href="./course-file-pages/series-booklets.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -232,7 +232,7 @@
         <!--*****-->
         <!--Assignment Questions with Answer Key-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/co.php" class="card-contents">
+        <a href="./course-file-pages/assign-ans-key.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-green-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
