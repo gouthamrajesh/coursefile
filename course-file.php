@@ -307,7 +307,7 @@
         <!--*****-->
         <!--Result Analysis-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/co.php" class="card-contents">
+        <a href="./course-file-pages/result-analysis.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-orange-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
@@ -325,7 +325,7 @@
         <!--*****-->
         <!--Attainment Report-->
         <div class="col-xl-3 col-lg-6">
-        <a href="./course-file-pages/test.php" class="card-contents">
+        <a href="./course-file-pages/attainment-report.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
