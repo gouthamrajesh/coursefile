@@ -89,6 +89,29 @@ mysqli_close($conn);
     <link rel="stylesheet" href="../css/upload.css" type="text/css" />
     <link rel="stylesheet" href="../css/facu_prof.css" type="text/css">
     <title>Assignment Questions with Answer Key</title>
+    <style>
+        button[type="submit"] {
+            padding: 10px 20px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a
+        {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -108,5 +131,8 @@ mysqli_close($conn);
             <input type="submit" name="submit" value="Upload" />
         </form>
     </div>
+
+    <br><br>
+    <button type="submit"><a href="../course-file.php?subject=<?php echo urlencode($subjectCode); ?>">Back to Home</a></button>
 </body>
 </html>

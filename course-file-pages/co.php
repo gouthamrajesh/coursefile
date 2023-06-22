@@ -111,6 +111,29 @@ mysqli_close($conn);
             border-radius: 5px;
             margin-top: 10px;
         }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a
+        {
+            text-decoration: none;
+            color: white;
+        }
+
     </style>
     <title>Course Outcome</title>
 </head>
@@ -152,5 +175,9 @@ mysqli_close($conn);
             </div>
         <?php endif; ?>
     </div>
+
+    <br><br>
+    <button type="submit"><a href="../course-file.php?subject=<?php echo urlencode($subjectCode); ?>">Back to Home</a></button>
+    
 </body>
 </html>
