@@ -32,11 +32,11 @@
 
         /* New styles */
         .present {
-            background-color: green;
+            background-color: paleturquoise;
             color: white;
         }
         .absent {
-            background-color: red;
+            background-color: grey;
             color: white;
         }
         
