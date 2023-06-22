@@ -39,6 +39,27 @@
             background-color: grey;
             color: white;
         }
+        button[type="submit"] {
+            padding: 10px 20px;
+            margin-left: 30px;
+            margin-bottom: 30px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a
+        {
+            text-decoration: none;
+            color: white;
+        }
         
     </style>
 </head>
@@ -130,5 +151,7 @@
     // Close the database connection
     $conn->close();
     ?>
+    <br><br>
+    <button type="submit"><a href="../course-file.php?subject=<?php echo urlencode($subjectCode); ?>">Back to Home</a></button>
 </body>
 </html>
