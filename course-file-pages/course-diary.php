@@ -94,7 +94,7 @@ $spcl_desig = $_SESSION['$spcl_desig'];
         <!--*****-->
         <!--Course Plan-->
         <div class="col-xl-3 col-lg-6">
-        <a href="../course-file-pages/test.php" class="card-contents">
+        <a href="./course-diary/course-plan.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-blue-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
