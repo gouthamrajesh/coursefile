@@ -131,13 +131,13 @@ $spcl_desig = $_SESSION['$spcl_desig'];
         <!--*****-->
         <!--Course Coverage-->
         <div class="col-xl-3 col-lg-6">
-        <a href="../course-file-pages/co.php" class="card-contents">
+        <a href="./course-diary/subject-coverage.php?subject=<?php echo urlencode($subjectCode); ?>" class="card-contents">
             <div class="card l-bg-orange-dark">
                 <div class="card-statistic-3 p-4">
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Course Coverage</h5>
+                        <h5 class="card-title">Subject Coverage</h5>
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
                     </div>
