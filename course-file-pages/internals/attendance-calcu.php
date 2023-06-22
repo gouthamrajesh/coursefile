@@ -117,20 +117,50 @@
         // Concatenate the values and complete the SQL statement
         $sqlInsert .= implode(", ", $values);
 
-        // Insert the data into the attendance_calcu table
-        if (mysqli_query($conn, $sqlInsert)) {
-            // Calculate the average attendance for each student
-            $sqlUpdate = "UPDATE cumu_calcu SET avg_attendance = (SELECT (attendance_score) FROM attendance_calcu WHERE attendance_calcu.roll_no = cumu_calcu.roll_no)";
-            mysqli_query($conn, $sqlUpdate);
+        // Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // ...
 
-            $message = "Data inserted into attendance_calcu successfully.";
-            $messageClass = "success-message";
-        } else {
-            $message = "Error: " . mysqli_error($conn);
-            $messageClass = "error-message";
-        }
+    // ...
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // ...
+
+    // Insert the data into the attendance_calcu table
+    if (mysqli_query($conn, $sqlInsert)) {
+        // Calculate the average attendance for each student
+        $sqlUpdate = "UPDATE cumu_calcu
+                      INNER JOIN attendance_calcu
+                      ON cumu_calcu.roll_no = attendance_calcu.roll_no
+                      SET cumu_calcu.avg_attendance =
+                          CASE
+                              WHEN attendance_calcu.attendance_score BETWEEN 90 AND 100 THEN 10
+                              WHEN attendance_calcu.attendance_score BETWEEN 80 AND 90 THEN 9
+                              WHEN attendance_calcu.attendance_score BETWEEN 70 AND 80 THEN 8
+                              WHEN attendance_calcu.attendance_score BETWEEN 60 AND 70 THEN 7
+                              WHEN attendance_calcu.attendance_score BETWEEN 50 AND 60 THEN 6
+                              WHEN attendance_calcu.attendance_score BETWEEN 40 AND 50 THEN 5
+                              WHEN attendance_calcu.attendance_score BETWEEN 30 AND 40 THEN 4
+                              WHEN attendance_calcu.attendance_score BETWEEN 20 AND 30 THEN 3
+                              WHEN attendance_calcu.attendance_score BETWEEN 10 AND 20 THEN 2
+                              WHEN attendance_calcu.attendance_score BETWEEN 1 AND 10 THEN 1
+                              WHEN attendance_calcu.attendance_score = 0 THEN 0
+                              ELSE cumu_calcu.avg_attendance
+                          END";
+        mysqli_query($conn, $sqlUpdate);
+
+        $message = "Data inserted into attendance_calcu successfully.";
+        $messageClass = "success-message";
+    } else {
+        $message = "Error: " . mysqli_error($conn);
+        $messageClass = "error-message";
     }
-    ?>
+}
+}
+    }
+?>
+
 </head>
 <body>
     <div class="fac_name">
