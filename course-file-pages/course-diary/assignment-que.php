@@ -88,7 +88,7 @@ mysqli_close($conn);
 <head>
     <link rel="stylesheet" href="../../css/upload.css" type="text/css" />
     <link rel="stylesheet" href="../../css/facu_prof.css" type="text/css">
-    <title>Assignment Questions</title>
+    <title>Assignment Questions - Course Diary</title>
 </head>
 <body>
 
