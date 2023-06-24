@@ -14,6 +14,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+    <style>
+        .merge-btn {
+            margin-bottom: 16px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .merge-btn:hover {
+            background-color: #235225;
+            zoom: 1.005;
+        }
+
+        .merge-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
 <?php 
 
     // Retrieving the subject code from the URL parameter
@@ -361,6 +386,10 @@
 
 
     </div>
+</div>
+
+<div class="text-center mt-5">
+    <a href="./merge_pdf.php" class="btn btn-primary merge-btn">Go to Merge PDF Page</a>
 </div>
     
     
