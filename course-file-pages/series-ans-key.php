@@ -22,7 +22,7 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $targetDirectory = "../../uploads/series-ans-key/";
+    $targetDirectory = "../uploads/series-ans-key/";
     $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
 
