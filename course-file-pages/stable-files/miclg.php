@@ -13,8 +13,8 @@ if (isset($_GET['subject'])) {
 }
 
 // Variables for id and category
-$id = 19;
-$category = 'series-ans-key';
+$id = 2;
+$category = 'miclg';
 
 session_start();
 $current_user = $_SESSION['$current_user'];
