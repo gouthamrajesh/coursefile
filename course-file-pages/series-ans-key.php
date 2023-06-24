@@ -150,11 +150,8 @@ mysqli_close($conn);
 
     <div class="demo">
         <ol class="breadcrumb">
-            <li><a href="#" style="text-decoration: none;">Home</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Library</a></li>
-            <li><a href="#">Web</a></li>
-            <li class="active">Data</li>
+            <li><a href="../course-file.php?subject=<?php echo urlencode($subjectCode); ?>" style="text-decoration: none;">Course File</a></li>
+            <li class="active">Series Test Questions with Answer Key</li>
         </ol>
     </div>
 
