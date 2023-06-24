@@ -22,7 +22,7 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $targetDirectory = "../uploads/series-ans-key/";
+    $targetDirectory = "../uploads/files/";
     $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
 
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
             $fileSize = $_FILES["file"]["size"];
             $uploadTime = date("Y-m-d H:i:s");
 
-            $filepath = "uploads/series-ans-key/" . $filename; // Relative path of the uploaded file
+            $filepath = "uploads/files/" . $filename; // Relative path of the uploaded file
 
             // Prepare the SQL statement
             $sql = "INSERT INTO subjects_files (subject_code, file_name, file_path, uploaded_at) 
