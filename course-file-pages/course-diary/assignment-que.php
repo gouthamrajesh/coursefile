@@ -12,6 +12,10 @@ if (isset($_GET['subject'])) {
     $subjectCode = 'No Subject Code Available';
 }
 
+// Variables for id and category
+$id = 13;
+$category = 'assignment-cd';
+
 session_start();
 $current_user = $_SESSION['$current_user'];
 $_SESSION['subjectCode'] = $subjectCode;
@@ -22,15 +26,14 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $targetDirectory = "../../uploads/assignment-questions/";
-    $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
+    $targetDirectory = "../../uploads/files/";
+    $originalFileName = $_FILES["file"]["name"];
+    $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+    $filename = basename($originalFileName, '.' . $fileExtension);
+    $timestamp = time(); // Get current timestamp
+    $newFileName = $filename . '_' . $timestamp . '.' . $fileExtension;
+    $targetFile = $targetDirectory . $newFileName;
     $uploadOk = 1;
-
-    // Check if file already exists
-    if (file_exists($targetFile)) {
-        echo '<div class="message error">Sorry, file already exists.</div>';
-        $uploadOk = 0;
-    }
 
     // Check file size (optional)
     if ($_FILES["file"]["size"] > 5000000) {
@@ -45,25 +48,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
         // Move the uploaded file to the desired directory
         if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
             // Insert file details into the database
-            $filename = $_FILES["file"]["name"];
             $fileSize = $_FILES["file"]["size"];
             $uploadTime = date("Y-m-d H:i:s");
 
-            $filepath = "uploads/assignment-questions/" . $filename; // Relative path of the uploaded file
+            $filepath = "uploads/files/" . $newFileName; // Relative path of the uploaded file
 
             // Prepare the SQL statement
-            $sql = "INSERT INTO subjects_files (subject_code, file_name, file_path, uploaded_at) 
-                    VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO subjects_files (id, category, subject_code, file_name, file_path, uploaded_at) 
+                    VALUES (?, ?, ?, ?, ?, ?)";
 
             // Prepare the statement
             $stmt = mysqli_prepare($conn, $sql);
             if ($stmt) {
                 // Bind the parameters
-                mysqli_stmt_bind_param($stmt, 'ssss', $subjectCode, $filename, $filepath, $uploadTime);
+                mysqli_stmt_bind_param($stmt, 'isssss', $id, $category, $subjectCode, $newFileName, $filepath, $uploadTime);
 
                 // Execute the statement
                 if (mysqli_stmt_execute($stmt)) {
-                    echo '<div class="message success">The file ' . basename($_FILES["file"]["name"]) . ' has been uploaded and details saved to the database.</div>';
+                    echo '<div class="message success">The file ' . $originalFileName . ' has been uploaded and details saved to the database.</div>';
                 } else {
                     echo '<div class="message error">Sorry, there was an error uploading your file and saving details to the database.</div>';
                 }
@@ -83,17 +85,79 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
 mysqli_close($conn);
 ?>
 
+
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="../../css/upload.css" type="text/css" />
     <link rel="stylesheet" href="../../css/facu_prof.css" type="text/css">
-    <title>Assignment Questions - Course Diary</title>
+    <title>Assignment Questions</title>
+    <style>
+    .breadcrumb{
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        border-radius: 5px 25px 25px 5px;
+        overflow: hidden;
+    }
+    .breadcrumb li{
+        float: left;
+        list-style-type: none;
+        margin-right: 3px;
+        position: relative;
+        z-index: 1;
+    }
+    .breadcrumb li:before{ display: none; }
+    .breadcrumb li:after{
+        content: "";
+        width: 40px;
+        height: 100%;
+        background: #428dff;
+        position: absolute;
+        top: 0;
+        right: -20px;
+        z-index: -1;
+    }
+    .breadcrumb li:nth-last-child(2):after,
+    .breadcrumb li:last-child:after{ display: none; }
+    .breadcrumb li a,
+    .breadcrumb li:last-child{
+        display: block;
+        padding: 8px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        border-radius: 0 25px 25px 0;
+        box-shadow: 5px 0 5px -5px #333;
+    }
+    .breadcrumb li a{ background: #428dff; }
+    .breadcrumb li:last-child{
+        background: #ebf3fe;
+        color: #428dff;
+        margin-right: 0;
+    }
+    @media only screen and (max-width: 479px){
+        .breadcrumb li a,
+        .breadcrumb li:last-child{ padding: 8px 10px; }
+    }
+    @media only screen and (max-width: 359px){
+        .breadcrumb li a,
+        .breadcrumb li:last-child{ padding: 8px 7px; }
+    }
+    </style>
 </head>
 <body>
 
+    <div class="demo">
+        <ol class="breadcrumb">
+            <li><a href="../../course-file.php?subject=<?php echo urlencode($subjectCode); ?>" style="text-decoration: none;">Course File</a></li>
+            <li><a href="../course-diary.php?subject=<?php echo urlencode($subjectCode); ?>" style="text-decoration: none;">Course Diary</a></li>
+            <li class="active">Assignment Questions</li>
+        </ol>
+    </div>
+
     <div class="fac_name">
-        <h1>Course File</h1>
+        <h1>Department Course File</h1>
         Faculty Name: <?php echo $current_user; ?>
         <br>
         Subject Code: <?php echo $subjectCode; ?>
