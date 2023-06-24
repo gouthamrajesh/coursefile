@@ -26,7 +26,7 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["file"])) {
-    $targetDirectory = "../uploads/files/";
+    $targetDirectory = "../../uploads/files/";
     $originalFileName = $_FILES["file"]["name"];
     $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
     $filename = basename($originalFileName, '.' . $fileExtension);
