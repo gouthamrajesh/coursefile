@@ -156,7 +156,7 @@ mysqli_close($conn);
     </div>
 
     <div class="fac_name">
-        <h1>Course File</h1>
+        <h1>Department Course File</h1>
         Faculty Name: <?php echo $current_user; ?>
         <br>
         Subject Code: <?php echo $subjectCode; ?>
