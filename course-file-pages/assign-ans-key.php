@@ -91,7 +91,7 @@ mysqli_close($conn);
 <head>
     <link rel="stylesheet" href="../css/upload.css" type="text/css" />
     <link rel="stylesheet" href="../css/facu_prof.css" type="text/css">
-    <title>Series Test Answer Booklets</title>
+    <title>Assignment Questions Answer Key</title>
     <style>
     .breadcrumb{
         display: inline-block;
