@@ -127,7 +127,7 @@
                     <div class="mb-4">
                             <h5 class="card-title">PEO and PSO</h5>                              
                     </div>
-                    <div class="row align-items-center mb-2 d-flex">
+                     <div class="row align-items-center mb-2 d-flex">
                     </div>
                 </div>
             </a>
