@@ -104,7 +104,7 @@ $spcl_desig = $_SESSION['$spcl_desig'];
                     <div class="card-icon card-icon-large"><i class="fas fa-ticket-alt"></i>
                     </div>
                     <div class="mb-4">
-                            <h5 class="card-title">Attendance Percentile Calculator</h5>                                
+                            <h5 class="card-title">Attendance Percentage Calculator</h5>                                
                         
                     </div>
                     <div class="row align-items-center mb-2 d-flex">
